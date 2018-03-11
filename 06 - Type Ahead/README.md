@@ -43,4 +43,3 @@ If you want to match a regex and change the DOM based on these changes for examp
 #### Top tip
 
 Write the functions first and then hook up to event listener last
-
