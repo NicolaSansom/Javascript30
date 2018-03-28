@@ -1,4 +1,5 @@
-# Lesson learned
+# Lessons learned
+
 This was the most challenging lesson yet.
 
 ## Dev tools
@@ -6,7 +7,6 @@ This was the most challenging lesson yet.
 When logging out arrays can return the data in more readable format
 
 `console.table(array)`
-
 
 ### Destructuring
 

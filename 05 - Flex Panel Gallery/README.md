@@ -1,10 +1,10 @@
-# Lesson learned
+# Lessons learned
 
 Mostly CSS related content in lesson related to flex nothing really new in this area to note
 
 ## Javascript
 
-Transition end requires us to first pass in the event, if you console log this out it will show you all of the css propeties that were transitioned. In the example we needed the text animation to trigger after the flex animation was complete.
+Transition end requires us to first pass in the event, if you console log this out it will show you all of the css properties that were transitioned. In the example we needed the text animation to trigger after the flex animation was complete.
 
 To do this we need to get the name of the flex property by typing
 `e.propertyName === 'flex'`

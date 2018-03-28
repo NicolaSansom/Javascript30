@@ -1,4 +1,4 @@
-# Lesson learned
+# Lessons learned
 
 ### Some - `Array.prototype.some()`
 
