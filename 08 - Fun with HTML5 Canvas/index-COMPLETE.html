@@ -31,7 +31,7 @@
       if (!isDrawing) return; // will only run when mouse is down
       console.log(e);
       ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-      // loop these are of the colors
+
       hue++;
       if (hue >= 360) {
         hue = 0;
@@ -58,7 +58,7 @@
 
     canvas.addEventListener('mousedown', (e) => {
       isDrawing = true;
-      // This the user click down it get there mouses position so its not always starting at zero
+      // When the user first clicks down we get there mouses position so its not always starting at zero
       [lastX, lastY] = [e.offsetX, e.offsetY];
     });
 
