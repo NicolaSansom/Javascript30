@@ -2,7 +2,7 @@
 
 In this video we learn about the canvas element this was interesting because it is something I have never really touched before.
 
-## What is a canvas?
+## What is a canvas
 
 The canvas lets you draw pixels on the onto it, well not the canvas itself the canvas context. The context can either by 3d or 2d in the example we used 2d canvas.
 
