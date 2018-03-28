@@ -1,5 +1,9 @@
 # Lessons learned
 
+🦄🦄🦄🦄🦄
+
+## Array methods
+
 ### Some - `Array.prototype.some()`
 
 This method checks that at least one item in an array meets are requirements. It will loop though every item in the array to check for a match see js for file for an example.
