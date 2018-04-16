@@ -4,7 +4,7 @@ In this episode we look into creating KONAMI code this is basically where a user
 
 ## Negative array.slice()
 
-After all of the key a user presses is being sorted in an array we aim to to get rid of an that are longer then the length of the secret code. So for example if the code was 5 keys were would only want to store if keys. In this situation we also  need to count from the back  To do this we use a negative splice.
+All of the keys a user presses are being sorted in an array we do not want to store more values then the length of the secret code. So for example if the code was 5 keys we would only want to store 5 values in the array. In this situation we also  need to count from the back. To do this we use a negative splice.
 
 `pressed.splice(-secretCode.length  - 1, pressed.length - secretCode.length);`
 
