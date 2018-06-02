@@ -1,6 +1,6 @@
 # Lessons Learned
 
-This first lesson covered a range over different topics.
+This first lesson covered a range of different topics.
 
 [keycode.info](http://www.keycode.info) - shows you which key code corresponds to the keys on your keyboard
 

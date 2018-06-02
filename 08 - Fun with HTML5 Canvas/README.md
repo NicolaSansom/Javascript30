@@ -1,6 +1,6 @@
 # Lessons learned
 
-In this video we learn about the canvas element this was interesting because it is something I have never really touched before.
+In this video we learn about the canvas element this was interesting because it is something I have never really touched on before.
 
 ## What is a canvas
 
@@ -57,7 +57,7 @@ HSL stands for “Hue Saturation Lightness”.
 
 ### Summarized
 
-A hue is specified as an angle within the [color wheel](https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2015/01/hsl-color-wheel.png "color wheel"). relative to red.
+A hue is specified as an angle within the [color wheel](https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2015/01/hsl-color-wheel.png "color wheel") relative to red.
 
 *Saturation and lightness are represented as percentages
 *100% is full saturation, and 0% is a shade of gray

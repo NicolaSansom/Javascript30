@@ -36,7 +36,7 @@ We can have a unlimited amount of things to be inserted for example `const add =
 
 ### Defining a index from the back
 
-As seen in the video we can also select a negative index which counts in from the back. This also mean items at the front can be removed. In the context of the video has the length of the array goes up the second argument increase and when it equal one it will start to remove items.
+As seen in the video we can also select a negative index which counts in from the back. This also means items at the front can be removed. In the context of the video, the length of the array is passed into the second argument, when its equal to one it will start to remove items.
 
 ```javascript
 const hockeyTeams = ['devils', 'panthers', 'giants', 'capitals', 'flames'];
