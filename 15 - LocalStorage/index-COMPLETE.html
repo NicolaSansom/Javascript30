@@ -89,11 +89,12 @@
     function deleteAll(e) {
       e.preventDefault();
       const items = [];
-      localStorage.setItem('items', JSON.stringify(items));
+      localStorage.removeItem('items');
       populateList(items, itemsList);
     }
 
     function checkAll(e) {
+
       const checkTo = e.target.matches('.check-all') ? true : false;
       e.preventDefault();
       items.forEach((item) => {
