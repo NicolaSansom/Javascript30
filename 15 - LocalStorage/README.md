@@ -62,6 +62,10 @@ To get items out of local storage we can use `localStorage.getItem(key)`. In ord
 
 We use `JSON.parse` to convert a stringified array back into a array
 
+## `removeItem()`
+
+If we ever want to delete a item for locale storage then we just need to pass in the key to the function
+
 ## Event delegation
 
 If items are created after we are listening for them they will not have events listenter attached to them.
@@ -81,10 +85,34 @@ In the case of the example we only wanted the function to run if the item click 
 
 ## Extra credit
 
-Wes challenged us to implement a couple of feature onto the TODO.
+Wes challenged us to implement a couple of extra features.
 
 ### Delete all
 
-### Check all
+To delete I attached a click event listener to add button. When clicked it clears the items arrays and removes items from locale storage and updated the list view.
 
-### Uncheck all
+```javascript
+ function deleteAll(e) {
+      e.preventDefault();
+      const items = [];
+      localStorage.removeItem('items');
+      populateList(items, itemsList);
+    }
+```
+
+### Check to all
+
+I created buttons to check all and uncheck all both use the same function using a matches to figure out of all were checked or unchecked. Then running over all of the items and updating the done state.
+
+```javascript
+  function checkAll(e) {
+    const checkTo = e.target.matches('.check-all') ? true : false;
+    e.preventDefault();
+    items.forEach((item) => {
+      item.done = checkTo
+    });
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+  }
+```
+
