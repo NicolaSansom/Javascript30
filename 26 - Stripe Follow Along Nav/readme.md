@@ -43,6 +43,13 @@ When we have all of these details we then assign them to the `dropdownBackground
   // Set background size
   background.style.setProperty('height', `${coords.height}px`);
   background.style.setProperty('width', `${coords.width}px`);
-  background.style.setProperty('transform', `translate(${coords.left}px {coords.top}px)`);
+  background.style.setProperty('transform', `translate(${coords.left}px, {coords.top}px)`);
+```
 
+## Stop UI issues
+
+If you hover very quickly over each item the UI started to go a little crazy this is because class being removed before JS was able to run correctly. To fix this we do:
+
+```javascript
+    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
 ```
