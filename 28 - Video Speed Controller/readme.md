@@ -2,7 +2,7 @@
 
 In this video we are focusing on two areas: mouse events and working with html 5 video. To create a draggable slider which increases / decrases the speed of a video.
 
-## Set up draggability
+## Set up playback slider draggability
 
 We largely use techniques we learnt in the last video to get this effect to work.
 
