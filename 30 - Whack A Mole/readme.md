@@ -84,9 +84,6 @@ forever more so we need to create an end.
 
 Now we have check for clicks on the mole to stop people cheating we check the `isTrusted` variable to make sure people are not faking click in javascript.
 
-TODO:
-Create an different levels of the game
-
 ## Extra bits
 
 ### Store past scores in local storage
