@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Whack A Mole!</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Whack-a-mole! <span class="score">0</span></h1>
+    <form name="startGame">
+      <select name="level">
+        <option selected="selected" value="300 1400">Easy</option>
+        <option value="200 1000">Hard</option>
+        <option value="100 500">Super Hard</option>
+      </select>
+      <button type="submit">Start!</button>
+    </form>
+  </div>
+
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+  <h2 class="past-scores-header">Past scores</h2>
+  <ul class="past-scores">
+    <li>Loading in scores...</li>
+  </ul>
+
+  <script>
+    const holes = document.querySelectorAll('.hole');
+    const scoreBoard = document.querySelector('.score');
+    const moles = document.querySelectorAll('.mole');
+    let lastHole;
+    let timeUp = false;
+    let score = 0;
+    let levelSpeed = { min: 200, max: 1000 };
+
+    const pastScoresList = document.querySelector('.past-scores');
+    const pastScores = JSON.parse(localStorage.getItem('scores')) || [];
+
+
+    function randomTime(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
+
+    function randomHole(holes) {
+      const ixd = Math.floor(Math.random() * holes.length);
+      const hole = holes[ixd];
+
+      if (hole === lastHole) {
+        return randomHole(holes);
+      }
+
+      lastHole = hole;
+      return hole;
+    }
+
+    function peep() {
+      const time = randomTime(levelSpeed.min, levelSpeed.max);
+      const hole = randomHole(holes);
+      // Display the mole
+      hole.classList.add('up');
+      // When the time is up hide the mole again
+      setTimeout(() => {
+        hole.classList.remove('up');
+        if (!timeUp) peep();
+      }, time);
+    }
+
+    function startGame() {
+      scoreBoard.textContent = 0;
+      score = 0;
+      timeUp = false;
+      peep();
+      setTimeout(() => {
+        const now = new Date();
+        const finalScore = {
+          time: `${now.getDate()}-${now.getMonth()}-${now.getFullYear()} - ${now.getHours()}:${now.getMinutes() < 10 ? '0' : ''}${now.getMinutes()}`,
+          score: `${score === 1 ? `1 mole whacked` : `${score} moles whacked`}`
+        };
+        pastScores.push(finalScore);
+        localStorage.setItem('scores', JSON.stringify(pastScores));
+        populatePastScoresList(pastScores, pastScoresList);
+        return timeUp = true;
+      }, 10000);
+    }
+
+    function populatePastScoresList(pastScores = [], pastScoresList) {
+      pastScoresList.innerHTML =
+        pastScores
+          .sort((a, b) => parseInt(b.score.split(' ')[0]) - parseInt(a.score.split(' ')[0]))
+          .filter(result => parseInt(result.score.split(' ')[0]) !== 0)
+          .map((result, i) => {
+            return `
+              <li>
+                <h3 class="date">${result.time}</h3>
+                <div class="result">
+                  <p>${result.score}</p>
+                </div>
+              </li>
+            `;
+          }).join('');
+    }
+
+    function bonk(e) {
+      if (!e.isTrusted) return;
+      score++;
+      this.classList.remove('up');
+      scoreBoard.textContent = score;
+    }
+
+    moles.forEach(mole => mole.addEventListener('click', bonk));
+
+    populatePastScoresList(pastScores, pastScoresList);
+
+    document.startGame.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Split string values out into two integers
+      const selectedLevelSpeed = this.level.value.split(' ').map(speed => parseInt(speed));
+      // set the level speed
+      levelSpeed.min = selectedLevelSpeed[0];
+      levelSpeed.max = selectedLevelSpeed[1];
+      startGame();
+    })
+
+
+  </script>
+</body>
+
+</html>
